@@ -8,7 +8,7 @@ from display import *
 def normalize(vector):
     pass
 
-#Return the dot product of a . b
+# Return the dot product of a . b
 def dot_product(a, b):
     if len(a) != len(b):
         return None

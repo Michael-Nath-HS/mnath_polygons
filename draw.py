@@ -12,7 +12,6 @@ def draw_polygons( polygons, screen, color ):
         n = calculate_normal(polygons, point)
         v = [0, 0, 1]
         prod = dot_product(n, v)
-        print(prod)
         if prod > 0:
             draw_line( int(polygons[point][0]),
                     int(polygons[point][1]),
@@ -39,17 +38,17 @@ def add_box( polygons, x, y, z, width, height, depth ):
     #front
 
     add_polygon(polygons, x, y, z, x, y1, z, x1, y, z)
-    add_polygon(polygons, x1, y1, z, x, y1, z, x1, y, z)
+    add_polygon(polygons, x1, y1, z, x1, y, z, x, y1, z)
 
     #back
-    add_polygon(polygons, x, y, z1, x, y1, z1, x1, y, z1)
+    add_polygon(polygons, x, y, z1, x1, y, z1, x, y1, z1)
     add_polygon(polygons, x1, y1, z1, x, y1, z1, x1, y, z1)
     #top and bottom
-    add_polygon(polygons, x, y, z1, x, y, z1, x, y, z)
+    add_polygon(polygons, x, y, z1, x, y, z, x1, y, z1)
     add_polygon(polygons, x1, y, z, x1, y, z1, x, y, z)
-    add_polygon(polygons, x, y1, z, x1, y1, z1, x, y1, z1)
-    add_polygon(polygons, x1, y1, z, x1, y1, z1, x, y1, z)
-    #sides
+    add_polygon(polygons, x, y1, z, x, y1, z1, x1, y1, z1)
+    add_polygon(polygons, x1, y1, z, x, y1, z, x1, y1, z1)
+    # #sides
     add_polygon(polygons, x, y, z, x, y, z1, x, y1, z1)
     add_polygon(polygons, x, y1, z, x, y, z, x, y1, z1)
     add_polygon(polygons, x1, y, z, x1, y1, z, x1, y, z1)
